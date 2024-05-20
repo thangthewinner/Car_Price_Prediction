@@ -1,16 +1,14 @@
 import pandas as pd 
 import pickle as pk 
 import streamlit as st
-import os
 
-model = pk.load(open('D:/FPT_Subjects/Semester_3/ADY201m/Labs/lab02/Car_Price_Prediction/model.pkl','rb'))
+model = pk.load(open('model.pkl', 'rb'))
 
 st.title('Car Price Prediction')
-st.image("D:/FPT_Subjects/Semester_3/ADY201m/Labs/lab02/Car_Price_Prediction/Car.jpg", use_column_width=True)
 
-current_path = os.getcwd()
+st.image('Car.jpg', use_column_width=True)
 
-cars_data = pd.read_csv('D:/FPT_Subjects/Semester_3/ADY201m/Labs/lab02/Car_Price_Prediction/data/cardetails.csv')
+cars_data = pd.read_csv('./data/cardetails.csv')
 
 def get_brand_name(car_name):
     car_name = car_name.split(' ')[0]
